@@ -1,4 +1,4 @@
-NAME = Cub3d
+NAME = cub3D
 LIBMLX	:= ~/MLX42/
 CFLAGS = -Wall -Wextra -Werror -g -Ofast
 MLX_FLAGS = $(LIBMLX)/libmlx42.a
