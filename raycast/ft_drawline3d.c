@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_drawline3d.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lloison < lloison@student.42mulhouse.fr    +#+  +:+       +#+        */
+/*   By: matfranc <matfranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:41:15 by matfranc          #+#    #+#             */
-/*   Updated: 2023/02/24 14:19:59 by lloison          ###   ########.fr       */
+/*   Updated: 2023/02/28 15:28:23 by matfranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ mlx_texture_t	*set_texture(t_data *data, t_raycastHit *ray, int *pos)
 	else
 	{
 		*pos = ray->pos.y;
-		texture = data->texture.wall_o;
+		texture = data->texture.wall_e;
 		if (ray->side == RIGHT)
-			texture = data->texture.wall_e;
+			texture = data->texture.wall_o;
 	}
 	return (texture);
 }
