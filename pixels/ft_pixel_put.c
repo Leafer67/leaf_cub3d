@@ -19,8 +19,8 @@ void	ft_pixel_put(mlx_image_t *image, uint32_t x, uint32_t y, uint32_t color)
 
 	bpp = sizeof(int32_t);
 	dst = NULL;
-	if (x >= 0 && (x < WINDOW_WIDTH && x < image->width)
-		&& (y >= 0 && (y < WINDOW_HEIGHT && y < image->height)))
+	if ((x < WINDOW_WIDTH && x < image->width)
+		&& ((y < WINDOW_HEIGHT && y < image->height)))
 		dst = image->pixels + ((((y) * image->width * bpp) + (x * bpp)));
 	if (dst)
 		*(uint32_t *)dst = color;

@@ -15,11 +15,11 @@
 static void	init_deltadist(t_vector dir, t_vector *deltaDist)
 {
 	if (dir.x == 0)
-		deltaDist->x = MAXFLOAT;
+		deltaDist->x = INFINITY;
 	else
 		deltaDist->x = fabs(1.0 / dir.x);
 	if (dir.y == 0)
-		deltaDist->y = MAXFLOAT;
+		deltaDist->y = INFINITY;
 	else
 		deltaDist->y = fabs(1.0 / dir.y);
 }

@@ -1,7 +1,7 @@
 NAME = cub3D
-LIBMLX	:= ~/MLX42/
-CFLAGS = -Wall -Wextra -Werror -g -Ofast
-MLX_FLAGS = $(LIBMLX)/libmlx42.a
+LIBMLX	:= ./MLX42
+CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
+MLX_FLAGS = $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
 CC = gcc
 LIBFT = libft/libft_enhanced.a
 HEADERS	:= -I ./include -I $(LIBMLX)/include
@@ -72,5 +72,10 @@ debug: $(LIBFT) $(SOURCES) $(OBJECTS)
 $(LIBFT) :
 	make -C libft/
 
+linux: $(LIBFT) $(SOURCES) $(OBJECTS)
+	cd ./MLX42 && cmake -B build && cmake --build build -j4
+	cd ..
+	$(CC) $(CFLAGS) $(OBJECTS) $(MLX_FLAGS) $(LIBFT) -o $(NAME)
+
 $(NAME): $(LIBFT) $(SOURCES) $(OBJECTS)
-	$(CC) $(MLX_FLAGS) $(FLAGS) $(OBJECTS) $(LIBFT) -lglfw -L "$(HOME)/.brew/opt/glfw/lib/" -o $(NAME)
+	$(CC) $(OBJECTS) $(MLX_FLAGS) $(LIBFT) -o $(NAME)

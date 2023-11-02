@@ -37,9 +37,6 @@ static void	move_and_rotate(t_data *data)
 
 static void	get_movement_input(t_data *data)
 {
-	int			angle_save;
-
-	angle_save = data->player->angle;
 	if (mlx_is_key_down(data->mlx, MLX_KEY_W))
 		data->player->movement.y = -1;
 	else if (mlx_is_key_down(data->mlx, MLX_KEY_S))
